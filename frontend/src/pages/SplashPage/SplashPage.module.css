@@ -1,0 +1,111 @@
+.fullScreenContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0a2e38, #0f4c81, #1a6fc9);
+  background-size: 400% 400%;
+  animation: gradientBG 12s ease infinite;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 2rem;
+  animation: fadeIn 1.5s ease-out;
+}
+
+.fullScreenLogo {
+  width: 180px;
+  height: 180px;
+  margin-bottom: 2rem;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.25));
+}
+
+.fullScreenTitle {
+  color: white;
+  font-size: 4rem;
+  font-weight: 800;
+  margin: 0;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  letter-spacing: 1.5px;
+  margin-bottom: 1rem;
+}
+
+.fullScreenSubtitle {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.8rem;
+  font-weight: 300;
+  max-width: 800px;
+  text-align: center;
+  line-height: 1.4;
+  margin-bottom: 3rem;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.progressBar {
+  width: 100%;
+  max-width: 500px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 2rem;
+}
+
+.progressFill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #3a89ff, #7fbfff);
+  animation: progressLoad 3s linear forwards;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes progressLoad {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+@media (max-width: 768px) {
+  .fullScreenTitle {
+    font-size: 3rem;
+  }
+  
+  .fullScreenSubtitle {
+    font-size: 1.4rem;
+  }
+  
+  .fullScreenLogo {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .fullScreenTitle {
+    font-size: 2.5rem;
+  }
+  
+  .fullScreenSubtitle {
+    font-size: 1.2rem;
+  }
+}

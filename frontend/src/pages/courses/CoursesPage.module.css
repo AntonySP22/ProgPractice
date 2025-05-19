@@ -1,0 +1,448 @@
+/* ========== Layout General ========== */
+.fullScreenWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to bottom, #f5f7fa 0%, #e4e8eb 100%);
+  overflow-y: auto;
+  z-index: 1;
+}
+
+/* ========== Mensajes de texto ========== */
+p {
+  color: #f26b6b;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+.mainContent {
+  flex: 1;
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  color: #052659; /* Color oscuro para las secciones */
+  margin: 2rem 0 1rem;
+  padding-left: 0.5rem;
+}
+
+/* ========== Barra de búsqueda ========== */
+.searchBarContainer {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0 2rem;
+}
+
+.searchInput {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  outline: none;
+  background-color: #f8f8f8; /* Fondo más claro */
+  color: #333; /* Texto oscuro para la barra de búsqueda */
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.searchInput::placeholder {
+  color: #888; /* Color del placeholder */
+}
+
+.searchInput:focus {
+  border-color: #3a86ff;
+  box-shadow: 0 0 0 3px rgba(58, 134, 255, 0.2);
+}
+/* ========== Nueva Sección: Header ========== */
+.header {
+  height: 70px;
+  width: 100vw;
+  background-color: #b297f1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1100;
+  box-sizing: border-box;
+  box-shadow: 0 2px 12px rgba(58, 134, 255, 0.06);
+}
+
+.headerTitle {
+  color: #052659;
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin: 0;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  flex: 1;
+  text-align: center;
+}
+
+.menuButton {
+  background: none;
+  border: none;
+  color: #222;
+  font-size: 2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.backButton {
+  background: none;
+  border: none;
+  color: #052659;
+  font-size: 1.6rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+  margin-left: -8px;
+}
+
+/* ========== Cards de Cursos ========== */
+.coursesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 2rem;
+}
+
+.courseCard {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.courseCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.courseIcon {
+  font-size: 1.2rem; /* Más grande si es SVG */
+  width: 72px; /* Más ancho */
+  height: 52px; /* Mantén la altura */
+  margin-right: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0e6ff;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+.courseInfo {
+  flex: 1;
+}
+
+.courseInfo h3 {
+  font-size: 1.1rem;
+  color: #052659; /* Color oscuro para los títulos de los cursos */
+  margin-bottom: 0.5rem;
+}
+
+.status {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.inProgress {
+  background-color: #e8f4ff;
+  color: #1a73e8;
+}
+
+.completed {
+  background-color: #e8f5e9;
+  color: #34a853;
+}
+
+.notStarted {
+  background-color: #f5f5f5;
+  color: #666; /* Color gris para "no iniciado" */
+}
+
+/* ========== Menú Lateral Mejorado ========== */
+.menuOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-end;
+  animation: fadeIn 0.2s;
+}
+
+@keyframes fadeIn {
+  from {
+    background: rgba(0, 0, 0, 0);
+  }
+  to {
+    background: rgba(0, 0, 0, 0.35);
+  }
+}
+
+.menuContainer {
+  width: 260px;
+  max-width: 90vw;
+  background: #fff;
+  margin-top: 4.5rem;
+  margin-right: 1.5rem;
+  border-radius: 16px;
+  padding: 1.2rem 1rem 1rem 1rem;
+  box-shadow: 0 8px 32px rgba(58, 134, 255, 0.15),
+    0 1.5px 6px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-height: unset;
+  max-height: 340px;
+  justify-content: flex-start;
+  align-items: stretch;
+  animation: slideInMenu 0.25s;
+}
+
+@keyframes slideInMenu {
+  from {
+    transform: translateX(120%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.menuHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.menuUsername {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #052659;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 0.5rem;
+  border: none;
+  background: none;
+  font-size: 1rem;
+  color: #052659;
+  font-weight: 500;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+}
+
+.menuItem:hover {
+  background: #eaf1ff;
+  color: #3a86ff;
+}
+
+.menuIcon {
+  font-size: 1.1rem;
+  color: #3a86ff;
+}
+
+.menuDivider {
+  height: 1px;
+  background: #e4e8eb;
+  margin: 0.5rem 0;
+  border: none;
+}
+
+.menuLogout {
+  color: #e63946;
+  font-weight: bold;
+  margin-top: 0.2rem;
+}
+
+.menuLogout .menuIcon {
+  color: #e63946;
+}
+
+.menuAvatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #3a86ff;
+  margin-right: 0.5rem;
+}
+
+/* ========== Confirmación y Carga ========== */
+.confirmOverlay,
+.loadingOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+}
+.confirmBox,
+.loadingBox {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  min-width: 250px;
+}
+.confirmLabel {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+.confirmButtons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+.confirmYes,
+.confirmNo {
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.confirmYes {
+  background: #3a86ff;
+  color: #fff;
+}
+.confirmNo {
+  background: #ccc;
+  color: #333;
+}
+.loadingText {
+  font-size: 1.2rem;
+  color: #3a86ff;
+}
+
+/* ========== Bottom Navigation ========== */
+.bottomNav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 56px;
+  background: #fff;
+  border-top: 1px solid #e4e8eb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1200;
+  box-shadow: 0 -2px 12px rgba(58, 134, 255, 0.06);
+  gap: 35rem; /* Más espacio entre botones */
+}
+
+.bottomNavItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  min-height: 36px;
+  font-size: 0.9rem;
+  color: #3a86ff;
+  font-weight: 500;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+  transition: background 0.18s, color 0.18s;
+  border-radius: 8px;
+}
+
+.bottomNavItem svg {
+  font-size: 1.2rem;
+  margin-bottom: 2px;
+}
+
+/* Fuerza color negro en íconos y texto del menú inferior */
+.bottomNavItem,
+.bottomNavItem svg {
+  color: #111 !important;
+}
+
+.bottomNavItem.active,
+.bottomNavItem:hover {
+  color: #111 !important;
+  background: #eaf1ff;
+}
+
+.bottomNavItem.active svg,
+.bottomNavItem:hover svg {
+  color: #111 !important;
+}
+
+/* ========== Responsivo ========== */
+@media (max-width: 768px) {
+  .menuContainer {
+    width: 70%;
+  }
+
+  .mainContent {
+    padding: 1rem;
+  }
+
+  .coursesGrid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .coursesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .courseCard {
+    padding: 1rem;
+  }
+
+  .courseIcon {
+    font-size: 1.8rem;
+    width: 36px;
+    height: 36px;
+    margin-right: 12px;
+  }
+
+  .searchInput {
+    font-size: 0.95rem;
+  }
+}

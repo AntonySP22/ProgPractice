@@ -1,0 +1,464 @@
+/* Estructura principal en pantalla completa */
+.fullScreenWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+  overflow: auto;
+  z-index: 1;
+}
+
+/* ========== Menú Lateral ========== */
+.menuOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 2000;
+  display: flex;
+  justify-content: flex-end; /* Cambia a flex-end para que salga a la derecha */
+}
+
+.menuContainer {
+  width: 260px;
+  max-width: 90vw;
+  background: #fff;
+  margin-top: 80px;
+  margin-right: 1.5rem;
+  border-radius: 16px 0 16px 16px;
+  padding: 1.2rem 1rem 1rem 1rem;
+  box-shadow: 0 8px 32px rgba(58,134,255,0.15), 0 1.5px 6px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-height: unset;
+  max-height: 340px; /* Menú más corto */
+  justify-content: flex-start;
+  align-items: stretch;
+  animation: slideInMenu 0.25s;
+  overflow-y: auto;
+}
+
+.menuHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.8rem;
+  margin-top: 1rem;
+}
+
+.menuAvatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #B297F1;
+}
+
+.menuUsername {
+  font-weight: bold;
+  color: #3A86FF;
+  font-size: 1.1rem;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 0.5rem;
+  border: none;
+  background: none;
+  font-size: 1rem;
+  color: #052659;
+  font-weight: 500;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+}
+
+.menuItem:hover {
+  background: #eaf1ff;
+  color: #3A86FF;
+}
+
+.menuIcon {
+  font-size: 1.1rem;
+  color: #3A86FF;
+}
+
+.menuDivider {
+  height: 1px;
+  background: #e4e8eb;
+  margin: 0.5rem 0;
+  border: none;
+}
+
+.menuLogout {
+  color: #111 !important;
+}
+
+/* ========== Menú Inferior Fijo ========== */
+.bottomNav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 56px;
+  background: #fff;
+  border-top: 1px solid #e4e8eb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1200;
+  box-shadow: 0 -2px 12px rgba(58,134,255,0.06);
+  gap: 35rem !important;
+}
+
+.bottomNavItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  min-height: 36px;
+  font-size: 0.9rem;
+  color: #3A86FF;
+  font-weight: 500;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+  transition: background 0.18s, color 0.18s;
+  border-radius: 8px;
+}
+
+/* Solo el texto negro */
+.bottomNavItem {
+  color: #111 !important;
+}
+.bottomNavItem.active,
+.bottomNavItem:hover {
+  color: #111 !important;
+}
+
+.bottomNavItem svg {
+  font-size: 1.2rem;
+  margin-bottom: 2px;
+}
+
+.bottomNavItem.active,
+.bottomNavItem:hover {
+  color: #111 !important;
+  background: #eaf1ff;
+}
+
+.bottomNavItem.active svg,
+.bottomNavItem:hover svg {
+  color: #111 !important;
+}
+
+/* ========== Animaciones ========== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInMenu {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+/* ========== Responsivo ========== */
+
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+  .mainContent {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .leftColumn,
+  .rightColumn {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .Logo {
+    width: 180px;
+    max-width: 60%;
+  }
+
+  .description {
+    font-size: 1rem;
+    padding: 0 0.5rem;
+  }
+
+  .detailsContainer {
+    gap: 1rem;
+    justify-content: space-evenly;
+  }
+
+  .detailBox {
+    width: 120px;
+    padding: 0.75rem;
+  }
+
+  .learnButton {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .bottomNav {
+    gap: 2rem;
+    height: 56px;
+  }
+  .menuContainer {
+    width: 80vw;
+    min-width: 200px;
+    max-width: 90vw;
+  }
+}
+
+/* Pantallas muy pequeñas (teléfonos en modo retrato) */
+@media (max-width: 480px) {
+  .mainContent {
+    padding: 0.5rem;
+  }
+
+  .Logo {
+    width: 160px;
+    max-width: 70%;
+  }
+
+  .description {
+    font-size: 0.9rem;
+    padding: 0 0.25rem;
+  }
+
+  .detailsContainer {
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  .detailBox {
+    width: 100px;
+    padding: 0.5rem;
+  }
+
+  .learnButton {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .bottomNav {
+    gap: 1rem;
+    height: 56px;
+  }
+  .menuContainer {
+    width: 95vw;
+    min-width: 140px;
+    max-width: 100vw;
+  }
+}
+
+.introMain {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 90px;    /* Espacio para el header */
+  padding-bottom: 90px; /* Espacio para el menú inferior */
+}
+
+.introCard {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(58,134,255,0.10);
+  display: flex;
+  flex-direction: row;
+  max-width: 1100px; /* Más ancho */
+  width: 100%;
+  padding: 32px 56px; /* Más padding lateral */
+  gap: 32px;
+  align-items: center;
+}
+
+.introLeft {
+  display: none; /* Ya no se usa */
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 0.5rem;
+}
+
+.introLogoSmall {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #f3f3f3;
+  box-shadow: 0 2px 8px rgba(58,134,255,0.08);
+}
+
+.introTitle {
+  font-size: 2rem;
+  color: #3A86FF;
+  margin: 0;
+  white-space: pre-line;
+}
+
+@media (max-width: 900px) {
+  .introCard {
+    max-width: 98vw;
+    padding: 18px 8px;
+  }
+  .titleRow {
+    gap: 10px;
+  }
+  .introLogoSmall {
+    width: 54px;
+    height: 54px;
+  }
+  .introTitle {
+    font-size: 1.2rem;
+  }
+}
+
+.buttonCenter {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.learnButton {
+  background: linear-gradient(90deg, #3A86FF 60%, #B297F1 100%);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 16px 48px;
+  font-size: 1.15rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(58,134,255,0.10);
+  transition: background 0.2s, transform 0.2s;
+  letter-spacing: 1px;
+}
+.learnButton:hover {
+  background: linear-gradient(90deg, #2656a6 60%, #a58be0 100%);
+  transform: translateY(-2px) scale(1.04);
+}
+
+/* ========== Nueva Sección: Header ========== */
+.header {
+  height: 70px;
+  width: 100vw;
+  background-color: #B297F1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1100;
+  box-sizing: border-box;
+  box-shadow: 0 2px 12px rgba(58,134,255,0.06);
+}
+
+.headerTitle {
+  color: #052659;
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin: 0;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  flex: 1;
+  text-align: center;
+}
+
+.menuButton {
+  background: none;
+  border: none;
+  color: #222; /* Oscuro para mejor contraste */
+  font-size: 2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detailsContainer {
+  display: flex;
+  gap: 24px;
+  margin: 1.5rem 0 1rem 0;
+  justify-content: center;   /* <--- Cambia de flex-start a center */
+  flex-wrap: wrap;
+}
+
+.detailBox {
+  background: #f1f5ff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(58,134,255,0.08);
+  padding: 18px 28px;
+  min-width: 120px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.detailBox strong {
+  font-size: 1.3rem;
+  color: #3A86FF;
+  margin-bottom: 4px;
+  font-weight: bold;
+  display: block;
+}
+
+.detailBox span {
+  font-size: 1rem;
+  color: #052659;
+  opacity: 0.85;
+}
+
+.introDescription {
+  color: #222 !important;
+}
+
+/* ========== Ajustes para pantallas pequeñas ========== */
+@media (max-width: 600px) {
+  .detailsContainer {
+    justify-content: center;
+    gap: 12px;
+  }
+  .detailBox {
+    min-width: 90px;
+    padding: 12px 10px;
+  }
+}
+
+.backButton {
+  background: none;
+  border: none;
+  color: #052659;
+  font-size: 1.6rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+  margin-left: -8px;
+}
